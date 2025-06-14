@@ -25,6 +25,7 @@ let playlistData;
 let isInit = true;
 let shouldStopTimer = false;
 let isTimerPaused = false; // 타이머 정지 상태 여부
+let isSunCalLoaded = false;
 let hideButtonTimeout;
 let countdownTimer;
 let playlistState = 0;
@@ -32,6 +33,7 @@ let audioPlaylistData;
 let videoPlaylistData; // Array to store video playlist data
 let currentAudioIndex = 0; // Current index for audio playback
 let currentVideoIndex = 0; // Current index for video playback
+let playedVideos = new Set(); // 이미 재생된 비디오의 인덱스를 저장하는 Set
 
 // DOM 요소
 const playerElement = document.getElementById('youtubePlayer');
@@ -42,6 +44,25 @@ const riseElement = document.getElementById('rise');
 const setElement = document.getElementById('set');
 const riseIconElement = document.getElementById('rise-icon');
 const setIconElement = document.getElementById('set-icon');
+
+// SunCalc 로드 여부를 확인하는 함수
+function initializeSunCalc(retryCount = 5) {
+  if (typeof SunCalc !== 'undefined') {
+      console.log('SunCalc 라이브러리 로드 완료.');
+
+      isSunCalLoaded = true;    
+  } else if (retryCount > 0) {
+      console.warn(`SunCalc 라이브러리가 로드되지 않았습니다. ${6 - retryCount}/5 재시도 중...`);
+      setTimeout(() => initializeSunCalc(retryCount - 1), 500); // 500ms 후에 다시 시도
+  } else {
+      console.error('SunCalc 라이브러리 로드에 실패했습니다. 페이지를 새로고침 해주세요.');
+  }
+}
+
+window.onload = function() {
+  initializeSunCalc();
+  
+};
 
 // YouTube iframe API 스크립트 삽입
 insertScript('https://www.youtube.com/iframe_api');
@@ -91,6 +112,7 @@ function getCurrentMode() {
   const currentHour = new Date().getHours();
   return currentHour >= 18 || currentHour < 6 ? Mode.NIGHT : Mode.ALL;
 }
+
 
 async function readVideoPlayList() {
   try {
@@ -163,15 +185,35 @@ function initYouTubePlayers() {
 
 // 플레이어 준비 완료 이벤트
 function onPlayerReady(event) {
-    console.log('YouTube Player is ready.');
-    videoPlayerReady = true;
+  console.log('YouTube Player is ready.');
+  videoPlayerReady = true;
 
-    if (videoPlaylistData && videoPlaylistData.length > 0) {
-        event.target.setShuffle(true);
-        event.target.setLoop(true);
-        event.target.setPlaybackQuality('highres'); // Set to highres quality for video
-        playNextVideo();  // 데이터가 로드된 후에만 재생 시작
-    }
+  function tryPlayNextVideo(retryCount = 5) {
+      if (retryCount <= 0) {
+        console.error('Failed to initialize YouTube Player after multiple attempts.');
+        // 자동 새로고침 안내 메시지 표시
+        alert('Youtube player 로드에 실패했습니다. 2초 뒤에 페이지 새로고침을 합니다.');
+        setTimeout(() => {
+            location.reload(); // 2초 후에 페이지 자동 새로고침
+        }, 2000);
+        return;
+      }
+
+      if (typeof youtubePlayer.loadVideoById === 'function') {
+          console.log('youtubePlayer.loadVideoById is available, proceeding to play next video.');
+          playNextVideo();  // 데이터가 로드된 후에만 재생 시작
+      } else {
+          console.warn(`loadVideoById is not available yet, retrying... (${6 - retryCount}/5)`);
+          setTimeout(() => tryPlayNextVideo(retryCount - 1), 500); // 200ms 후에 다시 시도
+      }
+  }
+
+  if (videoPlaylistData && videoPlaylistData.length > 0) {
+      event.target.setShuffle(true);
+      event.target.setLoop(true);
+      event.target.setPlaybackQuality('highres'); // Set to highres quality for video
+      tryPlayNextVideo();  // 재시도 로직을 포함한 함수 호출
+  }
 }
 
 // 오디오 플레이어 준비 완료 이벤트
@@ -271,56 +313,148 @@ function onPlayerError(event) {
 
 // 다음 비디오 재생
 async function playNextVideo() {
-    console.log('Playing next video.');
-    if(!videoPlayerReady)   return;
-    stopCountdown();
-  
-    currentMode = getCurrentMode();
-    console.log('Current mode:', currentMode);
-  
-    let filteredPlaylist = [];
-  
-    for (const video of videoPlaylistData) {
+  console.log('Playing next video.');
+  if (!videoPlayerReady) return;
+  stopCountdown();
+
+  currentMode = getCurrentMode();
+  console.log('Current mode:', currentMode);
+
+  let filteredPlaylist = [];
+
+  for (const video of videoPlaylistData) {
       const videoTime = new Date().toLocaleString("en-US", { timeZone: video.time_zone });
       const videoHour = new Date(videoTime).getHours();
-  
+
+      // PC의 현재 시간 기준으로 낮/밤 여부 판단
+      const localHour = new Date().getHours();
+      const isLocalNightTime = localHour > 16 || localHour < 7;
+
       const isVideoNightTime = videoHour > 16 || videoHour < 7;
 
-      // 조건 1: night_mode가 켜져 있고, 비디오 시간이 밤인지 확인
-      // 조건 2: video_mode와 일치하는 비디오만 재생
-      if (
-        (!nightMode || (nightMode && isVideoNightTime && video.night_view)) && 
-        (videoMode === Mode.ALL || video.video_mode === videoMode)
-      ) {
-        filteredPlaylist.push(video);
+      let nightCondition;
+      if (isLocalNightTime) {
+          // 로컬 PC 시간이 밤일 때
+          if (videoMode === Mode.ALL) {
+              nightCondition = isVideoNightTime ? video.night_view : true;
+          } else if (videoMode === Mode.NIGHT) {
+              nightCondition = isVideoNightTime && video.night_view;
+          }
+      } else {
+          // 로컬 PC 시간이 낮일 때
+          if (videoMode === Mode.ALL || videoMode === Mode.NIGHT) {
+              nightCondition = isVideoNightTime ? video.night_view : true;
+          }
       }
-    }
-  
-    console.log('Filtered playlist length:', filteredPlaylist.length);
-  
-    if (filteredPlaylist.length > 0) {
-        const randomIndex = getRandomIndex(filteredPlaylist.length);
-        console.log('Filtered randomIndex:', randomIndex);
-        videoObj = filteredPlaylist[randomIndex];
-    
-        console.log('videObj video_id:', videoObj.video_id);    
-        if (youtubePlayer && typeof youtubePlayer.loadVideoById === 'function') {
-            console.log('youtubePlayer is ready and loadVideoById is a function');
-            youtubePlayer.loadVideoById(videoObj.video_id);
-            youtubePlayer.setPlaybackQuality('highres'); // Set to highres quality for video
-            youtubePlayer.playVideo();
+
+      const modeCondition = (videoMode === Mode.ALL || video.video_mode === videoMode);
+
+      // console.log(`Video ID: ${video.video_id}, Night Condition: ${nightCondition}, Mode Condition: ${modeCondition}`);
+
+      if (nightCondition && modeCondition) {
+          filteredPlaylist.push(video);
+      } else {
+          // console.log(`Video excluded: ${video.video_id}`);
+      }
+  }
+
+  console.log('Filtered playlist length:', filteredPlaylist.length);
+
+  // 모든 비디오가 재생되었을 경우, playedVideos 초기화
+  if (playedVideos.size === filteredPlaylist.length) {
+      console.log('All videos have been played. Resetting played videos.');
+      playedVideos.clear();
+  }
+
+  // 아직 재생되지 않은 비디오 필터링
+  const unplayedVideos = filteredPlaylist.filter((_, index) => !playedVideos.has(index));
+
+  if (unplayedVideos.length > 0) {
+      const randomIndex = getRandomIndex(unplayedVideos.length);
+      const selectedVideoIndex = filteredPlaylist.indexOf(unplayedVideos[randomIndex]);
+      console.log('Selected video index:', selectedVideoIndex);
+      playedVideos.add(selectedVideoIndex); // 선택된 비디오 인덱스를 기록
+
+      videoObj = unplayedVideos[randomIndex];
+
+      if(isSunCalLoaded) {
+        
+        const weatherCity = videoObj.coords;
+        if (isNaN(parseInt(weatherCity.charAt(0)))) {          
+          console.log('Invalid weather city:', weatherCity);
+          // 이미지 요소를 숨김
+          riseIconElement.style.display = 'none';
+          setIconElement.style.display = 'none';
         } else {
-            console.error('youtubePlayer is not ready or loadVideoById is not a function');
-            return;
-        }
-        titleElement.innerText = videoObj.title;
-        addressElement.innerText = videoObj.address;
-    }
+          const [latitude, longitude] = weatherCity.split(", ").map(Number);
   
-    if (!isTimerPaused) {
-      startCountdown();
-    }
-    toggleBackgroundColor();
+          // 현재 날짜와 위치를 기반으로 일출 및 일몰 시간 계산
+          const times = SunCalc.getTimes(new Date(), latitude, longitude);
+  
+          // 계산된 일출 및 일몰 시간
+          const sunrise = times.sunrise;
+          const sunset = times.sunset;
+  
+          // 일출 및 일몰 시간을 현지 시간대로 변환하여 표시
+          const sunriseStr = sunrise.toLocaleTimeString('en-US', {
+              timeZone: videoObj.time_zone,
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: true  // AM/PM 형식 사용
+          });
+          
+          const sunsetStr = sunset.toLocaleTimeString('en-US', {
+              timeZone: videoObj.time_zone,
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: true  // AM/PM 형식 사용
+          });
+  
+          console.log(`일출 시간: ${sunriseStr}`);
+          console.log(`일몰 시간: ${sunsetStr}`);
+
+          riseElement.textContent = sunriseStr;
+          setElement.textContent = sunsetStr;
+
+          riseIconElement.src = 'img/sunrise.png';
+          setIconElement.src = 'img/sunset.png';
+
+          riseIconElement.style.display = 'block';
+          setIconElement.style.display = 'block';
+        }
+      } else {
+        // 이미지 요소를 숨김
+        riseIconElement.style.display = 'none';
+        setIconElement.style.display = 'none';
+      }
+
+      // try {
+      //   const data = await fetchWeatherData(videoObj.weather_city);
+      //   updateWeatherInfo(data);
+      // } catch (err) {
+      //   console.error('Failed to fetch weather data:', err);
+      // }
+
+      console.log('videoObj video_id:', videoObj.video_id);    
+      if (youtubePlayer && typeof youtubePlayer.loadVideoById === 'function') {
+          console.log('youtubePlayer is ready and loadVideoById is a function');
+          youtubePlayer.loadVideoById(videoObj.video_id);
+          youtubePlayer.setPlaybackQuality('highres'); // Set to highres quality for video
+          youtubePlayer.playVideo();
+      } else {
+          console.error('youtubePlayer is not ready or loadVideoById is not a function');
+          return;
+      }
+      titleElement.innerText = videoObj.title;
+      addressElement.innerText = videoObj.address;
+  } else {
+      console.log('No unplayed videos left.');
+  }
+
+  if (!isTimerPaused) {
+    startCountdown();
+  }
+  toggleBackgroundColor();
 }
 
 // 배경색 토글
