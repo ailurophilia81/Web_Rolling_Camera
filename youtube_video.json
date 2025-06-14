@@ -5447,7 +5447,7 @@
         "night_view": true,
         "weather_city": "St. Augustine",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "29.8978, -81.3125"
     },
     {
@@ -5458,7 +5458,7 @@
         "night_view": true,
         "weather_city": "St. Augustine",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "29.8978, -81.3125"
     },
     {
@@ -5469,7 +5469,7 @@
         "night_view": true,
         "weather_city": "St. Augustine",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "29.8978, -81.3125"
     },
     {
@@ -5480,7 +5480,7 @@
         "night_view": true,
         "weather_city": "St. Augustine",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "29.8978, -81.3125"
     },
     {
@@ -5491,7 +5491,7 @@
         "night_view": true,
         "weather_city": "St. Augustine",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "29.8978, -81.3125"
     },
     {
@@ -5502,7 +5502,7 @@
         "night_view": true,
         "weather_city": "St. Augustine",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "29.8978, -81.3125"
     },
     {
@@ -5513,7 +5513,7 @@
         "night_view": true,
         "weather_city": "43.08559379187875, -79.06545544802592",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "43.08559379187875, -79.06545544802592"
     },
     {
@@ -5524,7 +5524,7 @@
         "night_view": true,
         "weather_city": "44.2939, -73.9856",
         "video_category": "World",
-        "time_zone": "USA/Toronto",
+        "time_zone": "America/Toronto",
         "coords": "44.2939, -73.9856"
     },
     {
@@ -5535,7 +5535,7 @@
         "night_view": true,
         "weather_city": "miami",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "25.787657060689664, -80.21469616079897"
     },
     {
@@ -5546,7 +5546,7 @@
         "night_view": true,
         "weather_city": "Manitoba",
         "video_category": "World",
-        "time_zone": "USA/Winnipeg",
+        "time_zone": "America/Winnipeg",
         "coords": "55.743330156025934, -97.22830904315838"
     },
     {
@@ -5557,7 +5557,7 @@
         "night_view": true,
         "weather_city": "Calgary",
         "video_category": "World",
-        "time_zone": "USA/Edmonton",
+        "time_zone": "America/Edmonton",
         "coords": "51.0689477903221, -114.07479512177957"
     },
     {
@@ -5568,7 +5568,7 @@
         "night_view": true,
         "weather_city": "Ottawa",
         "video_category": "World",
-        "time_zone": "USA/Toronto",
+        "time_zone": "America/Toronto",
         "coords": "45.27420331545101, -75.85313584373588"
     },
     {
@@ -5579,7 +5579,7 @@
         "night_view": false,
         "weather_city": "69.2167, -51.1000",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "69.2167, -51.1000"
     },
     {
@@ -5590,7 +5590,7 @@
         "night_view": false,
         "weather_city": "43.08559379187875, -79.06545544802592",
         "video_category": "World",
-        "time_zone": "USA/Toronto",
+        "time_zone": "America/Toronto",
         "coords": "43.08559379187875, -79.06545544802592"
     },
     {
@@ -5601,7 +5601,7 @@
         "night_view": false,
         "weather_city": "43.08559379187875, -79.06545544802592",
         "video_category": "World",
-        "time_zone": "USA/Toronto",
+        "time_zone": "America/Toronto",
         "coords": "43.08559379187875, -79.06545544802592"
     },
     {
@@ -5612,7 +5612,7 @@
         "night_view": true,
         "weather_city": "49.0163861394209, -122.80539425861056",
         "video_category": "World",
-        "time_zone": "USA/Vancouver",
+        "time_zone": "America/Vancouver",
         "coords": "49.0163861394209, -122.80539425861056",
         "check": true,
         "channel": "@COWhiteRock"
@@ -5625,7 +5625,7 @@
         "night_view": true,
         "weather_city": "51.1304745950788, -115.76303827610266",
         "video_category": "World",
-        "time_zone": "USA/Toronto",
+        "time_zone": "America/Toronto",
         "coords": "51.1304745950788, -115.76303827610266"
     },
     {
@@ -5636,7 +5636,7 @@
         "night_view": true,
         "weather_city": "12.084228030655446, -68.89267631297912",
         "video_category": "World",
-        "time_zone": "USA/Curacao",
+        "time_zone": "America/Curacao",
         "coords": "12.084228030655446, -68.89267631297912"
     },
     {
@@ -5647,7 +5647,7 @@
         "night_view": true,
         "weather_city": "12.084228030655446, -68.89267631297912",
         "video_category": "World",
-        "time_zone": "USA/Curacao",
+        "time_zone": "America/Curacao",
         "coords": "12.084228030655446, -68.89267631297912"
     },
     {
@@ -5658,7 +5658,7 @@
         "night_view": true,
         "weather_city": "Las Vegas",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "36.176450479073615, -115.22650684360568"
     },
     {
@@ -5669,7 +5669,7 @@
         "night_view": true,
         "weather_city": "Las Vegas",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "36.176450479073615, -115.22650684360568"
     },
     {
@@ -5680,7 +5680,7 @@
         "night_view": true,
         "weather_city": "Chicago",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "40.74524799498419, -74.12113783478185"
     },
     {
@@ -5691,7 +5691,7 @@
         "night_view": true,
         "weather_city": "New York",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "40.74524799498419, -74.12113783478185"
     },
     {
@@ -5702,7 +5702,7 @@
         "night_view": true,
         "weather_city": "San Francisco",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "37.762442762828265, -122.45459499204155"
     },
     {
@@ -5713,7 +5713,7 @@
         "night_view": false,
         "weather_city": "47.38248873440783, -113.91826868354993",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "47.38248873440783, -113.91826868354993"
     },
     {
@@ -5724,7 +5724,7 @@
         "night_view": true,
         "weather_city": "Honolulu",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "21.112392979908925, -157.0937137272354"
     },
     {
@@ -5735,7 +5735,7 @@
         "night_view": true,
         "weather_city": "Honolulu",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "21.112392979908925, -157.0937137272354"
     },
     {
@@ -5746,7 +5746,7 @@
         "night_view": true,
         "weather_city": "Miami",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "25.787657060689664, -80.21469616079897"
     },
     {
@@ -5757,7 +5757,7 @@
         "night_view": true,
         "weather_city": "Miami",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "25.787657060689664, -80.21469616079897"
     },
     {
@@ -6017,7 +6017,7 @@
         "night_view": true,
         "weather_city": "New_York",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "64.83558315728352, -147.74934736553865"
     },
     {
@@ -6028,7 +6028,7 @@
         "night_view": true,
         "weather_city": "Fairbanks",
         "video_category": "World",
-        "time_zone": "USA/Anchorage",
+        "time_zone": "America/Anchorage",
         "coords": "64.83558315728352, -147.74934736553865"
     },
     {
@@ -6039,7 +6039,7 @@
         "night_view": true,
         "weather_city": "Fairbanks",
         "video_category": "World",
-        "time_zone": "USA/Anchorage",
+        "time_zone": "America/Anchorage",
         "coords": "64.83558315728352, -147.74934736553865"
     },
     {
@@ -6050,7 +6050,7 @@
         "night_view": true,
         "weather_city": "Fairbanks",
         "video_category": "World",
-        "time_zone": "USA/Anchorage",
+        "time_zone": "America/Anchorage",
         "coords": "64.83558315728352, -147.74934736553865"
     },
     {
@@ -6061,7 +6061,7 @@
         "night_view": false,
         "weather_city": "Fairbanks",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "64.83558315728352, -147.74934736553865"
     },
     {
@@ -6083,7 +6083,7 @@
         "night_view": true,
         "weather_city": "Virginia",
         "video_category": "World",
-        "time_zone": "USA/New_York",
+        "time_zone": "America/New_York",
         "coords": "37.78364426172807, -78.98746651963576"
     },
     {
@@ -6094,7 +6094,7 @@
         "night_view": true,
         "weather_city": "Washington",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "47.5945698372542, -120.66334592679182"
     },
     {
@@ -6105,7 +6105,7 @@
         "night_view": true,
         "weather_city": "Washington",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "47.5945698372542, -120.66334592679182"
     },
     {
@@ -6116,7 +6116,7 @@
         "night_view": true,
         "weather_city": "Washington",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "47.5945698372542, -120.66334592679182"
     },
     {
@@ -6127,7 +6127,7 @@
         "night_view": true,
         "weather_city": "Washington",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "47.5945698372542, -120.66334592679182"
     },
     {
@@ -6138,7 +6138,7 @@
         "night_view": false,
         "weather_city": "Oregon",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "43.976151081915376, -120.79256897859372"
     },
     {
@@ -6149,7 +6149,7 @@
         "night_view": false,
         "weather_city": "Oregon",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "43.976151081915376, -120.79256897859372"
     },
     {
@@ -6160,7 +6160,7 @@
         "night_view": true,
         "weather_city": "Florida",
         "video_category": "World",
-        "time_zone": "USA/Los_Angeles",
+        "time_zone": "America/Los_Angeles",
         "coords": "27.628138332991178, -81.22552277400074"
     },
     {
@@ -6709,7 +6709,7 @@
         "video_mode": "city",
         "weather_city": "Cancun",
         "video_category": "World",
-        "time_zone": "USA/Puerto_Rico",
+        "time_zone": "America/Puerto_Rico",
         "coords": "21.179508699544957, -86.84043995292282"
     },
     {
@@ -7237,7 +7237,7 @@
         "video_mode": "mountain",
         "weather_city": "65.57441974854139, -37.133533455654224",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "65.57441974854139, -37.133533455654224"
     },
     {
@@ -7248,7 +7248,7 @@
         "video_mode": "mountain",
         "weather_city": "65.57441974854139, -37.133533455654224",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "65.57441974854139, -37.133533455654224"
     },
     {
@@ -7259,7 +7259,7 @@
         "video_mode": "mountain",
         "weather_city": "65.57441974854139, -37.133533455654224",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "65.57441974854139, -37.133533455654224"
     },
     {
@@ -7270,7 +7270,7 @@
         "video_mode": "beach",
         "weather_city": "60.91656593718693, -46.04304001596499",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "60.91656593718693, -46.04304001596499"
     },
     {
@@ -7281,7 +7281,7 @@
         "video_mode": "beach",
         "weather_city": "70.70207382803483, -52.674265696028996",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "70.70207382803483, -52.674265696028996"
     },
     {
@@ -7292,7 +7292,7 @@
         "video_mode": "mountain",
         "weather_city": "67.00939435510664, -50.50165649234082",
         "video_category": "World",
-        "time_zone": "USA/Godthab",
+        "time_zone": "America/Godthab",
         "coords": "67.00939435510664, -50.50165649234082"
     },
     {
@@ -7338,7 +7338,7 @@
         "video_mode": "beach",
         "weather_city": "Gustavia, Saint Barthelemy",
         "video_category": "World",
-        "time_zone": "USA/St_Barthelemy",
+        "time_zone": "America/St_Barthelemy",
         "coords": "17.895206060499678, -62.84871958677537"
     },
     {
@@ -7397,7 +7397,7 @@
         "video_mode": "beach",
         "weather_city": "Jost Van Dyke",
         "video_category": "World",
-        "time_zone": "USA/Tortola",
+        "time_zone": "America/Tortola",
         "coords": "18.447619875393933, -64.750359531274"
     },
     {
@@ -7408,7 +7408,7 @@
         "video_mode": "beach",
         "weather_city": "Jost Van Dyke",
         "video_category": "World",
-        "time_zone": "USA/Tortola",
+        "time_zone": "America/Tortola",
         "coords": "18.447619875393933, -64.750359531274"
     },
     {
@@ -7521,7 +7521,7 @@
         "video_mode": "beach",
         "weather_city": "Bonaire",
         "video_category": "World",
-        "time_zone": "USA/Kralendijk",
+        "time_zone": "America/Kralendijk",
         "coords": "12.163796674177346, -68.2708449973548"
     },
     {
@@ -7543,7 +7543,7 @@
         "video_mode": "city",
         "weather_city": "Avenida Barros Luco, Chile",
         "video_category": "World",
-        "time_zone": "USA/Santiago",
+        "time_zone": "America/Santiago",
         "coords": "-33.59445226348969, -71.60915961866502",
         "channel": "sanantonioimagen"
     },
